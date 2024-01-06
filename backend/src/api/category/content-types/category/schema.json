@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "slug": {
+      "pluginOptions": {},
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "pluginOptions": {},
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "visible": {
+      "pluginOptions": {},
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "pluginOptions": {},
+      "type": "integer"
+    },
+    "featured": {
+      "pluginOptions": {},
+      "type": "boolean",
+      "default": false
+    },
+    "metaTitle": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "metaDescription": {
+      "pluginOptions": {},
+      "type": "text"
+    },
+    "metaKeywords": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "parentCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "retailer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::retailer.retailer",
+      "inversedBy": "categories"
+    }
+  }
+}

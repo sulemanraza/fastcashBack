@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "Offer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "blocks",
+      "pluginOptions": {}
+    },
+    "startDate": {
+      "type": "datetime",
+      "pluginOptions": {}
+    },
+    "endDate": {
+      "type": "datetime",
+      "pluginOptions": {}
+    },
+    "cashbackRate": {
+      "type": "integer",
+      "pluginOptions": {}
+    },
+    "terms": {
+      "type": "blocks",
+      "pluginOptions": {}
+    },
+    "imageURL": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "retailer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::retailer.retailer"
+    },
+    "offerType": {
+      "type": "enumeration",
+      "enum": [
+        "cashback",
+        "deal",
+        "coupon"
+      ],
+      "default": "cashback",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "discountType": {
+      "type": "enumeration",
+      "enum": [
+        "percentage",
+        "fixedAmount"
+      ],
+      "default": "percentage",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "views": {
+      "pluginOptions": {},
+      "type": "integer"
+    },
+    "purchases": {
+      "pluginOptions": {},
+      "type": "integer"
+    },
+    "rating": {
+      "pluginOptions": {},
+      "type": "decimal"
+    }
+  }
+}

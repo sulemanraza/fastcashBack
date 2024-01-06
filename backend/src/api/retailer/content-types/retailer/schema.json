@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "retailers",
+  "info": {
+    "singularName": "retailer",
+    "pluralName": "retailers",
+    "displayName": "Retailer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "blocks",
+      "pluginOptions": {}
+    },
+    "website": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "logoUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "contactInfo": {
+      "type": "blocks",
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": false
+    },
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "metaDescription": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "metaKeywords": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "retailer"
+    }
+  }
+}
