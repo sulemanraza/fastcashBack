@@ -1,4 +1,3 @@
-import FaqItem from "@/src/components/pages/Home/FaqItem";
 import JoinFrom from "@/src/components/pages/Home/JoinFrom";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,22 +7,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  FaFacebookSquare,
-  FaInstagramSquare,
-  FaLinkedin,
-} from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
 
 export default function Home() {
   return (
     <main>
       <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700">
         <nav className="container py-4 flex items-center justify-between">
-          <Link href="/" className="font-semibold text-2xl text-fuchsia-500">
-            Cashback
+          <Link href="/" className="font-semibold text-2xl text-[#245843]">
+            Fast<span>cashBack</span>
           </Link>
-          <Link href="/join" className="font-semibold">
+          <Link href="/join" className="font-semibold text-[#245843]">
             Join
           </Link>
         </nav>
@@ -206,69 +199,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="w-full   bg-[#dfdfe1]">
-        <div className="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto  ">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-10">
-            {footerLinks.map(({ title, links }) => (
-              <div key={title}>
-                <h4 className="text-sm font-semibold text-gray-900 uppercase dark:text-gray-100">
-                  {title}
-                </h4>
-                <div className="mt-3 grid space-y-3 text-sm">
-                  {links.map(({ name, href }) => (
-                    <p key={name}>
-                      <Link
-                        className="hover:underline inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        href={href}
-                      >
-                        {name}
-                      </Link>
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="pt-5 mt-5 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex flex-col sm:flex-row gap-2 justify-center sm:justify-between  items-center">
-              <div className="flex items-center gap-x-3">
-                <div className="space-x-4 text-sm ">
-                  © 2023 Cashback. All rights reserved.
-                </div>
-              </div>
-              <div className="flex justify-between items-center gap-2 text-lg">
-                <Link
-                  className="inline-block text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="#"
-                >
-                  <FaFacebookSquare />
-                </Link>
-                <Link
-                  className="inline-block text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="#"
-                >
-                  <FaSquareXTwitter />
-                </Link>
-                <Link
-                  className="inline-block text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 rounded-full"
-                  href="#"
-                >
-                  <FaLinkedin />
-                </Link>
-                <Link
-                  className="inline-block text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="#"
-                >
-                  <FaInstagramSquare />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
@@ -592,98 +522,6 @@ const topBrands = [
         name: "Estee Lauder",
         logo: "/estee_lauder.png",
         slug: "/estee-lauder",
-      },
-    ],
-  },
-];
-
-const footerLinks = [
-  {
-    title: "Here to help",
-    links: [
-      {
-        name: "Help Center",
-        href: "#",
-      },
-      {
-        name: "Contact Support",
-        href: "#",
-      },
-      {
-        name: "Status",
-        href: "#",
-      },
-      {
-        name: "Guides",
-        href: "#",
-      },
-      {
-        name: "Security",
-        href: "#",
-      },
-    ],
-  },
-  {
-    title: "Other ways to save",
-    links: [
-      {
-        name: "Coupons",
-        href: "#",
-      },
-      {
-        name: "Cash Back",
-        href: "#",
-      },
-      {
-        name: "Gift Card",
-        href: "#",
-      },
-    ],
-  },
-
-  {
-    title: "Get to know us",
-    links: [
-      {
-        name: "About Us",
-        href: "#",
-      },
-      {
-        name: "Careers",
-        href: "#",
-      },
-      {
-        name: "Blog",
-        href: "#",
-      },
-      {
-        name: "Press",
-        href: "#",
-      },
-      {
-        name: "Affiliates",
-        href: "#",
-      },
-    ],
-  },
-  {
-    title: "Legal stuff",
-    links: [
-      {
-        name: "Privacy Policy",
-        href: "#",
-      },
-      {
-        name: "Terms of Use",
-        href: "#",
-      },
-      {
-        name: "Accessibility Statement",
-        href: "#",
-      },
-      {
-        name: "Do Not Sell My Personal Information",
-        href: "#",
       },
     ],
   },
