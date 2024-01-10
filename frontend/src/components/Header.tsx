@@ -7,10 +7,17 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import { MenuIcon, User } from "lucide-react";
+import { MenuIcon, User, XIcon } from "lucide-react";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +28,7 @@ const Header = () => {
         <div className="w-full flex items-center justify-between">
           <Link
             href="/"
-            className="font-semibold text-base sm:text-xl md:text-2xl text-[#245843]"
+            className="font-semibold text-base sm:text-xl md:text-2xl text-brand"
           >
             Fast<span>cashBack</span>
           </Link>
@@ -33,9 +40,9 @@ const Header = () => {
             </Link>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-500 text-xs"
+              className="text-brand text-xs"
             >
-              {menuOpen ? <MenuIcon /> : <MenuIcon />}
+              {!menuOpen ? <MenuIcon /> : <XIcon />}
             </button>
           </div>
         </div>
@@ -135,7 +142,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="hidden bg-[#418868] lg:h-[45px] lg:flex items-center">
+      <div className="hidden bg-brand lg:h-[45px] lg:flex items-center">
         <div className="hidden container xl:w-9/12 py-2 lg:flex lg:flex-row items-center justify-between gap-5 list-none">
           <div className="flex items-center  lg:flex-row gap-5 list-none">
             {menus.map(({ title, slug, submenus }, index) => {
@@ -231,13 +238,74 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* mobile menu */}
       <div
-        className={`fixed w-screen h-screen  left-0 lg:hidden bg-[#418868] z-40 transition-all duration-300 ease-in-out ${
+        className={`fixed w-screen min-h-screen h-full  overflow-y-auto left-0 lg:hidden  bg-[#f9f9f9]  z-40 transition-all duration-300 ease-in-out ${
           menuOpen ? "top-0" : "top-[-100%]"
         }  
          
         `}
-      ></div>
+      >
+        <div className="mt-[108px] text-gray-500  py-5">
+          {/* menu */}
+          {menus.map(({ title, slug, submenus }, index) => {
+            return (
+              <div key={index} className="py-2 ">
+                {submenus ? (
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="w-full capitalize bg-transparent hover:bg-transparent"
+                  >
+                    <AccordionItem value="item-1" className="py-2  px-5">
+                      <AccordionTrigger
+                        className="py-0 font-normal"
+                        style={{
+                          textDecoration: "none",
+                        }}
+                      >
+                        {title}
+                      </AccordionTrigger>
+                      <AccordionContent className="flex flex-col gap-3 mt-3 pb-0">
+                        {submenus.map(({ name, href }, index) => {
+                          return (
+                            <div key={index} className="px-2">
+                              <Link
+                                href="/docs"
+                                legacyBehavior
+                                passHref
+                                className={
+                                  "bg-transparent hover:bg-transparent block w-full"
+                                }
+                              >
+                                {name}
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                ) : (
+                  <div className=" border-b p-2  px-5 capitalize">
+                    <Link
+                      href="/docs"
+                      legacyBehavior
+                      passHref
+                      className={
+                        "bg-transparent hover:bg-transparent block w-full "
+                      }
+                    >
+                      {title}
+                    </Link>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </header>
   );
 };
@@ -250,19 +318,15 @@ const menus = [
     slug: "/",
     submenus: [
       {
-        name: "Home 1",
+        name: "Travel",
         href: "/",
       },
       {
-        name: "Home 2",
+        name: "Fashion",
         href: "/",
       },
       {
-        name: "Home 3",
-        href: "/",
-      },
-      {
-        name: "Home 4",
+        name: "Electronics",
         href: "/",
       },
     ],
