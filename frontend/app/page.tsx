@@ -45,7 +45,7 @@ export default function Home() {
           </div>
           {/* right side */}
           <div className="flex justify-end item-start lg:w-1/2">
-            <JoinFrom />
+            <JoinFrom title="Sign up for free" />
           </div>
         </div>
       </section>

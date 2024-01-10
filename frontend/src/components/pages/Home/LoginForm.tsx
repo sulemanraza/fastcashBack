@@ -32,7 +32,7 @@ const FormSchema = z.object({
   }),
 });
 
-const JoinFrom = ({ title }: any) => {
+const LoginForm = ({ title }: any) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -45,13 +45,12 @@ const JoinFrom = ({ title }: any) => {
     console.log(data);
   };
   return (
-    <Card className="p-5 w-full h-auto min-h-[350px] lg:max-w-fit flex flex-col justify-between">
+    <Card className="p-5 w-full  h-auto min-h-auto space-y-4 lg:max-w-fit  flex flex-col justify-between">
       {title && (
         <h2 className="text-xl text-gray-800 font-semibold text-center mb-3">
-          {title ?? "Sign up for free"}
+          {title ?? "Members login"}
         </h2>
       )}
-
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -80,37 +79,22 @@ const JoinFrom = ({ title }: any) => {
               </FormItem>
             )}
           />
-          <Select>
-            <SelectTrigger className="w-full text-gray-600 border-l-0 border-t-0 border-r-0 rounded-none outline-none">
-              <SelectValue placeholder="Where did you hear about us?" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="friend_email">Tell a Friend Email</SelectItem>
-              <SelectItem value="search_engine">Search Engine</SelectItem>
-              <SelectItem value="online_article">Online Article</SelectItem>
-              <SelectItem value="twitter">Twitter</SelectItem>
-              <SelectItem value="facebook">Facebook</SelectItem>
-              <SelectItem value="news">News Shows</SelectItem>
-              <SelectItem value="online_forum">Online Forum</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
-            </SelectContent>
-          </Select>
 
           <Button
             className="w-full bg-[#ed1c5c]  font-semibold text-lg"
             type="submit"
           >
-            Join Free
+            Login
           </Button>
         </form>
       </Form>
 
       <div className="text-center max-w-[320px]">
         <Link
-          href="/login"
+          href="/passwordreset"
           className="hover:text-blue-500 text-xs font-semibold text-gray-700"
         >
-          Already have an account? Login
+          Forgot your password?
         </Link>
         <p className="p-1 text-gray-500 text-center text-xs ">
           By joining you agree to our terms & conditions and privacy policy
@@ -120,4 +104,4 @@ const JoinFrom = ({ title }: any) => {
   );
 };
 
-export default JoinFrom;
+export default LoginForm;
