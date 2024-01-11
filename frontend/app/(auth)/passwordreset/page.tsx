@@ -7,18 +7,18 @@ const PasswordReset = () => {
   return (
     <main className="">
       <Header />
-      <div className="bg-gray-100 py-5 min-h-[calc(100vh-182px)] ">
-        <Card className="container xl:w-9/12  py-5 space-y-4">
-          <h2 className="text-xl  text-gray-800 font-semibold ">
+      <div className="bg-gray-100 py-5 px-5 xl:px-0 xl:min-h-[calc(100vh-182px)] ">
+        <Card className="container xl:w-9/12 py-5 space-y-4">
+          <h2 className="text-lg xl:text-xl  text-gray-800 font-semibold ">
             Forgotten Your Password?
           </h2>
           <hr />
-          <p>
+          <p className="text-xs xl:text-base">
             Enter your email address and we&rsquo;ll email you a link to reset
             your password.
           </p>
 
-          <div className="w-1/2">
+          <div className="w-full xl:w-1/2">
             <form className="space-y-6">
               <div>
                 <label
@@ -42,7 +42,7 @@ const PasswordReset = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-1/3 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#ed1c5c] hover:bg-[#ed1c5c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ed1c5c]"
+                  className="xl:w-1/3 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#ed1c5c] hover:bg-[#ed1c5c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ed1c5c]"
                 >
                   Reset Password
                 </button>

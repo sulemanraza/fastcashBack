@@ -7,199 +7,204 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Footer from "@/src/components/Footer";
+import { footerLinks } from "@/src/data";
 
 export default function Home() {
   return (
-    <main>
-      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700">
-        <nav className="container py-4 flex items-center justify-between">
-          <Link href="/" className="font-semibold text-2xl text-[#245843]">
-            Fast<span>cashBack</span>
-          </Link>
-          <Link href="/join" className="font-semibold text-[#245843]">
-            Join
-          </Link>
-        </nav>
-      </header>
+    <>
+      <main>
+        <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700">
+          <nav className="container py-4 flex items-center justify-between">
+            <Link href="/" className="font-semibold text-2xl text-[#245843]">
+              Fast<span>cashBack</span>
+            </Link>
+            <Link href="/join" className="font-semibold text-[#245843]">
+              Join
+            </Link>
+          </nav>
+        </header>
 
-      {/* hero section */}
-      <section className="bg-[#1e9c6d] w-full py-16 md:p-0">
-        <div className="flex items-center justify-center md:justify-between flex-col md:flex-row md:gap-3 container ">
-          {/* left side */}
-          <div className="relative space-y-1 md:space-y-8 lg:w-1/2">
-            <h1 className=" font-extrabold  text-2xl lg:text-3xl xl:text-5xl text-gray-50 mt-10 md:mt-20 w-[95%]">
-              Cashback Rewards with Every Online Shop!
-            </h1>
-            <p className="text-gray-50 text-xs sm:text-sm md:text-lg my-10">
-              Join for free, shop your favorite brands, and start earning up to
-              $450 a year in returns.
+        {/* hero section */}
+        <section className="bg-[#1e9c6d] w-full py-16 md:p-0">
+          <div className="flex items-center justify-center md:justify-between flex-col md:flex-row md:gap-3 container ">
+            {/* left side */}
+            <div className="relative space-y-1 md:space-y-8 lg:w-1/2">
+              <h1 className=" font-extrabold  text-2xl lg:text-3xl xl:text-5xl text-gray-50 mt-10 md:mt-20 w-[95%]">
+                Cashback Rewards with Every Online Shop!
+              </h1>
+              <p className="text-gray-50 text-xs sm:text-sm md:text-lg my-10">
+                Join for free, shop your favorite brands, and start earning up
+                to $450 a year in returns.
+              </p>
+
+              <Image
+                src="/bird-hero.png"
+                width={350}
+                height={350}
+                alt=""
+                className="mt-10 object-contain object-center "
+              />
+            </div>
+            {/* right side */}
+            <div className="flex justify-end item-start lg:w-1/2">
+              <JoinFrom title="Sign up for free" />
+            </div>
+          </div>
+        </section>
+
+        {/* guid section */}
+        <section className="container py-20 grid place-items-center">
+          <h2 className="text-lg text-center md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-700">
+            Cash back is quick, rewarding, and flexible
+          </h2>
+
+          <div className="flex flex-col md:flex-row items-center gap-2 py-2 lg:w-9/12">
+            {/* image Card */}
+
+            <div className="flex items-center justify-center px-2 text-center flex-col lg:w-fit ">
+              <Image
+                src="/home_card_1.png"
+                width={250}
+                height={250}
+                alt=""
+                className="mt-10 object-cover object-center rounded-full "
+              />
+              <div>
+                <h3 className="text-lg font-semibold">Quick and easy</h3>
+                <p className="px-3">So you can get on with your shopping.</p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center px-2 text-center flex-col lg:w-fit ">
+              <Image
+                src="/home_card_2.png"
+                width={250}
+                height={250}
+                alt=""
+                className="mt-10 object-cover object-center rounded-full "
+              />
+              <div>
+                <h3 className="text-lg font-semibold">It all adds up</h3>
+                <p className="px-3">
+                  Members earn on average $450 cash back a year.
+                </p>{" "}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center px-2 text-center flex-col lg:w-fit ">
+              <Image
+                src="/home_card_3.png"
+                width={250}
+                height={250}
+                alt=""
+                className="mt-10 object-cover object-center rounded-full "
+              />
+              <div>
+                <h3 className="text-lg font-semibold">Pay out how you want</h3>
+                <p className="px-3">
+                  Get your money directly to your bank account, PayPal, or Gift
+                  Cards.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Frequently Asked Questions */}
+        <section className="bg-gray-100  min-h-[400px]">
+          <div className="container py-16">
+            <h2 className="text-lg text-center md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-600">
+              Frequently Asked Questions
+            </h2>
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-4  mt-10">
+              {faq.map(({ id, question, answer }: any) => {
+                return (
+                  <Accordion className="" type="single" collapsible key={id}>
+                    <AccordionItem
+                      className="bg-white rounded-sm"
+                      value={`item-${id}`}
+                    >
+                      <AccordionTrigger className="p-3">
+                        {question}
+                      </AccordionTrigger>
+
+                      <AccordionContent className="p-3">
+                        {answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* top US brands */}
+        <section>
+          <div className="container py-16">
+            <h2 className="text-lg text-center md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-600">
+              Huge savings on 1000s of top US brands
+            </h2>
+
+            {/* Store by Category */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center mt-10 xl:w-9/12 mx-auto">
+              {topBrands.map(({ category, stores }) => (
+                <div
+                  className="text-gray-600 py-2 sm:py-5 flex items-start justify-center flex-col w-full"
+                  key={category}
+                >
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold py-2">
+                    {category}
+                  </h3>
+                  <div className="flex flex-col items-start gap-2 sm:gap-3 flex-wrap">
+                    {stores.map(({ id, name, slug }) => (
+                      <Link
+                        href={slug}
+                        key={id}
+                        className="text-gray-500 hover:text-gray-700 underline text-sm sm:text-base"
+                      >
+                        {name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <Link
+                className="text-center col-span-full mt-8 underline text-base sm:text-lg text-gray-600 hover:text-gray-800"
+                href="/offer"
+              >
+                Browse our top offers
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Discover Green Cash Back */}
+        <section className="bg-[#e9eaeb]">
+          <div className="container py-16">
+            <h2 className="text-center text-2xl font-bold text-gray-600">
+              Discover Green Cash Back
+            </h2>
+
+            <p className="md:w-9/12 mx-auto text-center text-xs text-gray-500 sm:text-base  py-5">
+              We&apos;ve made it easy for you to find brands that support
+              ethical and sustainable choices. From sustainable production and
+              ethical sourcing, to protecting the world that supports us.
             </p>
 
-            <Image
-              src="/bird-hero.png"
-              width={350}
-              height={350}
-              alt=""
-              className="mt-10 object-contain object-center "
-            />
-          </div>
-          {/* right side */}
-          <div className="flex justify-end item-start lg:w-1/2">
-            <JoinFrom title="Sign up for free" />
-          </div>
-        </div>
-      </section>
-
-      {/* guid section */}
-      <section className="container py-20 grid place-items-center">
-        <h2 className="text-lg text-center md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-700">
-          Cash back is quick, rewarding, and flexible
-        </h2>
-
-        <div className="flex flex-col md:flex-row items-center gap-2 py-2 lg:w-9/12">
-          {/* image Card */}
-
-          <div className="flex items-center justify-center px-2 text-center flex-col lg:w-fit ">
-            <Image
-              src="/home_card_1.png"
-              width={250}
-              height={250}
-              alt=""
-              className="mt-10 object-cover object-center rounded-full "
-            />
-            <div>
-              <h3 className="text-lg font-semibold">Quick and easy</h3>
-              <p className="px-3">So you can get on with your shopping.</p>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center px-2 text-center flex-col lg:w-fit ">
-            <Image
-              src="/home_card_2.png"
-              width={250}
-              height={250}
-              alt=""
-              className="mt-10 object-cover object-center rounded-full "
-            />
-            <div>
-              <h3 className="text-lg font-semibold">It all adds up</h3>
-              <p className="px-3">
-                Members earn on average $450 cash back a year.
-              </p>{" "}
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center px-2 text-center flex-col lg:w-fit ">
-            <Image
-              src="/home_card_3.png"
-              width={250}
-              height={250}
-              alt=""
-              className="mt-10 object-cover object-center rounded-full "
-            />
-            <div>
-              <h3 className="text-lg font-semibold">Pay out how you want</h3>
-              <p className="px-3">
-                Get your money directly to your bank account, PayPal, or Gift
-                Cards.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Frequently Asked Questions */}
-      <section className="bg-gray-100  min-h-[400px]">
-        <div className="container py-16">
-          <h2 className="text-lg text-center md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-600">
-            Frequently Asked Questions
-          </h2>
-          <div className=" grid grid-cols-1 md:grid-cols-2 gap-4  mt-10">
-            {faq.map(({ id, question, answer }: any) => {
-              return (
-                <Accordion className="" type="single" collapsible key={id}>
-                  <AccordionItem
-                    className="bg-white rounded-sm"
-                    value={`item-${id}`}
-                  >
-                    <AccordionTrigger className="p-3">
-                      {question}
-                    </AccordionTrigger>
-
-                    <AccordionContent className="p-3">
-                      {answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* top US brands */}
-      <section>
-        <div className="container py-16">
-          <h2 className="text-lg text-center md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-600">
-            Huge savings on 1000s of top US brands
-          </h2>
-
-          {/* Store by Category */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center mt-10 xl:w-9/12 mx-auto">
-            {topBrands.map(({ category, stores }) => (
-              <div
-                className="text-gray-600 py-2 sm:py-5 flex items-start justify-center flex-col w-full"
-                key={category}
-              >
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold py-2">
-                  {category}
-                </h3>
-                <div className="flex flex-col items-start gap-2 sm:gap-3 flex-wrap">
-                  {stores.map(({ id, name, slug }) => (
-                    <Link
-                      href={slug}
-                      key={id}
-                      className="text-gray-500 hover:text-gray-700 underline text-sm sm:text-base"
-                    >
-                      {name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-
             <Link
-              className="text-center col-span-full mt-8 underline text-base sm:text-lg text-gray-600 hover:text-gray-800"
-              href="/offer"
+              href="#"
+              className="text-sm text-center  block text-gray-600 underline"
             >
-              Browse our top offers
+              Find out more...
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Discover Green Cash Back */}
-      <section className="bg-[#e9eaeb]">
-        <div className="container py-16">
-          <h2 className="text-center text-2xl font-bold text-gray-600">
-            Discover Green Cash Back
-          </h2>
-
-          <p className="md:w-9/12 mx-auto text-center text-xs text-gray-500 sm:text-base  py-5">
-            We&apos;ve made it easy for you to find brands that support ethical
-            and sustainable choices. From sustainable production and ethical
-            sourcing, to protecting the world that supports us.
-          </p>
-
-          <Link
-            href="#"
-            className="text-sm text-center  block text-gray-600 underline"
-          >
-            Find out more...
-          </Link>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+      <Footer links={footerLinks} />
+    </>
   );
 }
 

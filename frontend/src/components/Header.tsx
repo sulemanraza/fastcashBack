@@ -23,7 +23,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="mb-[108px] lg:mb-0">
+    <header className="mb-[108px]   bg-white lg:mb-0">
       <div className="fixed top-0 z-50  bg-white container xl:w-9/12 py-4 flex items-center flex-col lg:flex-row justify-between lg:relative">
         <div className="w-full flex items-center justify-between">
           <Link
