@@ -13,7 +13,7 @@ const Offers = () => {
         <Header />
 
         <div className="bg-gray-100 min-h-screen p-5 py-8 md:py-16">
-          <div className=" px-5 sm:container xl:w-9/12">
+          <div className=" sm:container xl:w-9/12">
             <div className="max-w-5xl text-center mx-auto pb-8 md:pb-16">
               <div className="flex items-center justify-center flex-col space-y-3">
                 <h1 className="text-gray-600 font-semibold capitalize text-3xl">
@@ -27,7 +27,7 @@ const Offers = () => {
             </div>
 
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-5 lg:gap-5">
                 {topBrands.map((item, index) => {
                   return (
                     <Card

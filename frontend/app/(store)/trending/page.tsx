@@ -20,7 +20,7 @@ const Trending = () => {
         <Header />
 
         <div className="bg-gray-100 min-h-screen p-5 py-8 space-y-5">
-          <div className="px-5 sm:container xl:w-9/12">
+          <div className=" sm:container xl:w-9/12">
             <Card className="max-w-5xl text-center rounded-sm mx-auto">
               <div className="flex items-center justify-between gap-4 flex-col sm:flex-row p-5">
                 <div className="flex items-center  gap-2">

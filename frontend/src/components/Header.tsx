@@ -34,7 +34,7 @@ const Header = () => {
           </Link>
 
           <div className="lg:hidden flex items-center gap-2">
-            <Link href="/" className="flex items-center">
+            <Link href="/join" className="flex items-center">
               <User className="w-5 h-5 sm:w-6 sm:h-6" />
               <span> Join / Login</span>
             </Link>
@@ -249,61 +249,63 @@ const Header = () => {
       >
         <div className="mt-[108px] text-gray-500  py-5">
           {/* menu */}
-          {menus.map(({ title, slug, submenus }, index) => {
-            return (
-              <div key={index} className="py-2 ">
-                {submenus ? (
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full capitalize bg-transparent hover:bg-transparent"
-                  >
-                    <AccordionItem value="item-1" className="py-2  px-5">
-                      <AccordionTrigger
-                        className="py-0 font-normal"
-                        style={{
-                          textDecoration: "none",
-                        }}
+          {[...onlyMobileMenus, ...menus].map(
+            ({ title, slug, submenus }, index) => {
+              return (
+                <div key={index} className="py-2 ">
+                  {submenus ? (
+                    <Accordion
+                      type="single"
+                      collapsible
+                      className="w-full capitalize bg-transparent hover:bg-transparent"
+                    >
+                      <AccordionItem value="item-1" className="py-2  px-5">
+                        <AccordionTrigger
+                          className="py-0 font-normal"
+                          style={{
+                            textDecoration: "none",
+                          }}
+                        >
+                          {title}
+                        </AccordionTrigger>
+                        <AccordionContent className="flex flex-col gap-3 mt-3 pb-0">
+                          {submenus.map(({ name, href }, index) => {
+                            return (
+                              <div key={index} className="px-2">
+                                <Link
+                                  href={href}
+                                  legacyBehavior
+                                  passHref
+                                  className={
+                                    "bg-transparent hover:bg-transparent block w-full"
+                                  }
+                                >
+                                  {name}
+                                </Link>
+                              </div>
+                            );
+                          })}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  ) : (
+                    <div className=" border-b p-2  px-5 capitalize">
+                      <Link
+                        href="/docs"
+                        legacyBehavior
+                        passHref
+                        className={
+                          "bg-transparent hover:bg-transparent block w-full "
+                        }
                       >
                         {title}
-                      </AccordionTrigger>
-                      <AccordionContent className="flex flex-col gap-3 mt-3 pb-0">
-                        {submenus.map(({ name, href }, index) => {
-                          return (
-                            <div key={index} className="px-2">
-                              <Link
-                                href="/docs"
-                                legacyBehavior
-                                passHref
-                                className={
-                                  "bg-transparent hover:bg-transparent block w-full"
-                                }
-                              >
-                                {name}
-                              </Link>
-                            </div>
-                          );
-                        })}
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                ) : (
-                  <div className=" border-b p-2  px-5 capitalize">
-                    <Link
-                      href="/docs"
-                      legacyBehavior
-                      passHref
-                      className={
-                        "bg-transparent hover:bg-transparent block w-full "
-                      }
-                    >
-                      {title}
-                    </Link>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+          )}
         </div>
       </div>
     </header>
@@ -348,8 +350,25 @@ const menus = [
     slug: "/",
   },
   {
-    title: "mobile app",
+    title: "Mobile app",
     submenus: null,
     slug: "/",
+  },
+];
+
+const onlyMobileMenus = [
+  {
+    title: "Latest Offers",
+    slug: "/",
+    submenus: [
+      {
+        name: "Trending",
+        href: "/trending",
+      },
+      {
+        name: "Offers",
+        href: "/offers",
+      },
+    ],
   },
 ];
