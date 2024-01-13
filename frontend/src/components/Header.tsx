@@ -210,7 +210,7 @@ const Header = () => {
                         { name: "Blog", href: "/blog", external: false },
                         {
                           name: "Browser Extension",
-                          href: "https://chromewebstore.google.com/category/extensions",
+                          href: "/browser-extension",
                           external: true,
                         },
                       ].map(({ name, href, external }, index) => {
